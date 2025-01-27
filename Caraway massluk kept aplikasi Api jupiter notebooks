@@ -1,0 +1,32 @@
+bash
+pip install requests
+```
+
+Contoh Kode
+```
+import requests
+import json
+
+Alamat API Jupiter Notebooks
+url = "https://api.jupyter.org/notebooks"
+
+Kode autentikasi (token atau username dan password)
+token = "YOUR_TOKEN_HERE"
+
+Header untuk permintaan HTTP
+headers = {
+    "Authorization": f"Bearer {token}",
+    "Content-Type": "application/json"
+}
+
+Buat permintaan GET ke API Jupiter Notebooks
+response = requests.get(url, headers=headers)
+
+Cek status kode respons
+if response.status_code == 200:
+    # Parse respons JSON
+    notebooks = json.loads(response.text)
+    print(notebooks)
+else:
+    print(f"Error: {response.status_code}")
+```
